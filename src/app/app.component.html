@@ -1,11 +1,15 @@
 <header class="top-container">
     <div class="top-container__logo-container">
         <a class="top-container__logo-container__link" [routerLink]="['']">
+            <fa-icon class="top-container__logo-container__icon" [icon]="faChartBar"></fa-icon>
             <h1 class="top-container__logo-container__link__logo">
-                Post It Generator
+                CONSULTA DA TABELA FIPE
             </h1> 
         </a>
     </div>
 </header>
-<router-outlet></router-outlet>
+<main class="main-container">
+    <router-outlet></router-outlet>    
+</main>
+
 

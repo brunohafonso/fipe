@@ -1,11 +1,8 @@
 import { Routes } from '@angular/router';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { PostitBoardComponent } from './postit-board/postit-board.component';
+import { FormSearchComponent } from './form-search/form-search.component';
 
 const ROUTES: Routes = [
-    { path: '', component: DashboardComponent },
-    { path: ':id', component: PostitBoardComponent }
+    {path: '', component: FormSearchComponent}
 ];
 
 export { ROUTES };

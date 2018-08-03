@@ -7,19 +7,15 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { BoardComponent } from './dashboard/board/board.component';
 import { ROUTES } from './app.routes';
-import { DashboardService } from './dashboard/dashboard.service';
-import { PostitBoardComponent } from './postit-board/postit-board.component';
+import { FormSearchComponent } from './form-search/form-search.component';
+import { FormSearchService } from './form-search/form-search.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    BoardComponent,
-    PostitBoardComponent,
-    
+    FormSearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +26,7 @@ import { PostitBoardComponent } from './postit-board/postit-board.component';
     RouterModule.forRoot(ROUTES),
     AngularDraggableModule
   ],
-  providers: [DashboardService],
+  providers: [FormSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

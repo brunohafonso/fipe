@@ -1,0 +1,58 @@
+<div class="intro-container">
+    <h2 class="title-description">
+      Preço Médio de Veículos
+    </h2>
+    <p class="description">
+        1. A Tabela Fipe expressa preços médios de veículos no mercado nacional, servindo apenas como um parâmetro para 
+        negociações ou avaliações. Os preços efetivamente praticados 
+        variam em função da região, conservação, cor, acessórios ou qualquer outro fator que possa influenciar 
+        as condições de oferta e procura por um veículo específico.
+    </p>
+    <p class="description">
+        2. O ano do veículo refere-se ao ano do modelo e não são considerados 
+        veículos para uso profissional ou especial.
+    </p>
+    <p class="description">
+        3. Os valores são expressos em R$ (reais) do mês/ano de referência.
+    </p>  
+</div>
+<div class="form-container">
+    <h3 class="form-container__title">
+        <fa-icon class="form-container__title__icon" [icon]="faCar"></fa-icon>
+        Consulta de Carros e Utilitários pequenos
+    </h3>
+    <hr class="form-container__divisor"/>
+    <p class="form-container__instrucoes">
+       Informe primeiro a marca do veículo e depois o modelo e o ano modelo. 
+    </p>
+    <div class="form-container__form-group">
+        <select class="form-container__form-group__select" [(ngModel)]="marcaId" (change)="carregarModelos()">
+            <option [ngValue]="undefined" selected>Selecione a marca do veiculo</option>
+            <option *ngFor="let marca of marcas" [value]="marca.id">{{ marca.name }}</option>
+        </select>
+    </div>
+    <div class="form-container__form-group">
+        <select class="form-container__form-group__select" [(ngModel)]="modeloId" (change)="carregarVeiculos()" [disabled]="activeModelos()">
+            <option [ngValue]="undefined" selected>Selecione o modelo do veiculo</option>
+            <option *ngFor="let modelo of modelos" [value]="modelo.id">{{ modelo.name }}</option>
+        </select>
+    </div>
+    <div class="form-container__form-group">
+        <select class="form-container__form-group__select" [(ngModel)]="veiculoId" (change)="cleanRelatorioCarro()" [disabled]="activeVeiculos()">
+            <option [ngValue]="undefined" selected>Selecione o ano e modelo do veiculo</option>
+            <option *ngFor="let veiculo of veiculos" [value]="veiculo.id">{{ veiculo.name }}</option>
+        </select>
+    </div>
+    <div class="form-container__form-group">
+        <input class="form-container__form-group__submit" type="submit" value="pesquisar" (click)="gerarRelatorioCarro()" [disabled]="activeSubmit()"/>
+    </div>
+</div>
+<ul class="relatorio-carro" *ngIf="showRelatorioCarro()">
+    <li class="relatorio-carro__item">Mês de referência: {{ carro.referencia }}</li>
+    <li class="relatorio-carro__item">Código Fipe: {{ carro.fipe_codigo }}</li>
+    <li class="relatorio-carro__item">Marca: {{ carro.marca }}</li>
+    <li class="relatorio-carro__item">Modelo: {{ carro.name }}</li>
+    <li class="relatorio-carro__item">Ano: {{ carro.ano_modelo }}</li>
+    <li class="relatorio-carro__item">Preço Médio: {{ carro.preco  }}</li>
+</ul>
+
