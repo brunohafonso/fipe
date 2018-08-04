@@ -9,7 +9,7 @@ import { FormSearchService } from './form-search.service';
 @Component({
   selector: 'app-form-search',
   templateUrl: './form-search.component.html',
-  styleUrls: ['./form-search.component.css']
+  styleUrls: ['./form-search.component.min.css']
 })
 export class FormSearchComponent implements OnInit {
   
